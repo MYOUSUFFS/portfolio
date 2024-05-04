@@ -1,0 +1,89 @@
+body {
+  background-image: url("assets/image/bg-white.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hole-content {
+  padding: 70px 0px 0px 5%;
+}
+
+#content {
+  float: left;
+  width: 60%;
+}
+
+#skill-img {
+  /* width: 50%; */
+  float: left;
+}
+
+#skill-image {
+  height: 400px;
+  align-items: center;
+}
+
+#full-name {
+  font-size: 60px;
+  padding: 0px;
+  font-family: "Itim", cursive;
+}
+
+#second-name {
+  color: #fff;
+  padding: 35px 45px 40px 20px;
+  background-image: url("assets/image/name-bg-black.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#last-name {
+  margin: 0px;
+}
+
+#profile {
+  font-size: 50px;
+  font-family: "Libre Barcode 128 Text", system-ui;
+  text-align: end;
+  font-weight: 100;
+  margin: 0px;
+}
+
+#postcard {
+  text-align: justify;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 30px;
+}
+
+/*Todo --- This is for light theme button Icon --- */
+#outside-border {
+  background-color: #000;
+  border-radius: 40px;
+  width: 70px;
+  height: 23px;
+}
+#round-ball {
+  background-color: #fff;
+  border-radius: 40px;
+  width: 20px;
+  height: 20px;
+  margin: 2px 2px;
+}
+/*! --- Light theme button Icon end --- */
+
+#menu-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  font-family: "Itim", cursive;
+}
+.menu-li {
+  display: inline-block;
+}
+.menu-a {
+  display: block;
+  padding: 8px;
+  color: #000;
+}
