@@ -4,6 +4,7 @@
   --text-color: #000; /* Default text color */
   --background-image: url("assets/image/bg-white.png");
   --second-name-bg: url("assets/image/name-bg-black.png");
+  --video-bg-glass-color: rgba(255, 255, 255, 0.5);
   --round-align-right: flex-start;
 }
 
@@ -13,6 +14,7 @@
   --background-image: url("assets/image/bg-black.png");
   --second-name-bg: url("assets/image/name-bg-white.png");
   --round-align-right: flex-end;
+  --video-bg-glass-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -22,6 +24,10 @@ body {
   background-size: cover;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+#myVideo {
+  display: none;
 }
 
 #hole-content {
@@ -47,17 +53,36 @@ body {
     width: 30%;
     float: left;
   }
-}
 
-/* #content {
-  width: 90%;
-  text-align: justify;
+  /* For bg video running comment */
+  .dark-theme #myVideo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Todo - this is the main think to work video in low layer */
+  }
+  /* Glassmorphism UI elements */
+  .dark-theme .glass-content {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    /* bottom: 0; */
+    width: 100%;
+    object-fit: cover;
+    background-color: var(
+      --video-bg-glass-color
+    ); /* Translucent white background */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    /* border-radius: 15px; */
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+    /* Optional: add a shadow for depth */
+    z-index: -1; /* Todo - Layer of the elements */
+  }
 }
-
-#skill-img {
-  width: 90%;
-  text-align: center;
-} */
 
 #skill-image {
   height: 400px;
