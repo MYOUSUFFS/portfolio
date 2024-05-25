@@ -24,10 +24,38 @@ body {
   background-size: cover;
   background-color: var(--background-color);
   color: var(--text-color);
+  background-attachment: fixed;
 }
 
 #myVideo {
   display: none;
+}
+
+/* For bg video running comment */
+.dark-theme #myVideo {
+  display: block;
+  position: fixed; /* Fix the video to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire screen width */
+  height: 100%; /* Cover the entire screen height */
+  object-fit: cover; /* Scale the video to cover the entire screen */
+  z-index: -1; /* Ensure the video is behind other elements */
+}
+
+/* Glassmorphism UI elements */
+.dark-theme .glass-content {
+  display: block;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  background-color: var(
+    --video-bg-glass-color
+  ); /* Translucent white background */
+  backdrop-filter: blur(10px);
+  z-index: -1; /* Todo - Layer of the elements */
 }
 
 #hole-content {
@@ -52,35 +80,6 @@ body {
   #skill-img {
     width: 30%;
     float: left;
-  }
-
-  /* For bg video running comment */
-  .dark-theme #myVideo {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2; /* Todo - this is the main think to work video in low layer */
-  }
-  /* Glassmorphism UI elements */
-  .dark-theme .glass-content {
-    position: absolute;
-    height: 100%;
-    left: 0;
-    /* bottom: 0; */
-    width: 100%;
-    object-fit: cover;
-    background-color: var(
-      --video-bg-glass-color
-    ); /* Translucent white background */
-    backdrop-filter: blur(10px); /* Apply a blur effect */
-    /* border-radius: 15px; */
-    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-    /* Optional: add a shadow for depth */
-    z-index: -1; /* Todo - Layer of the elements */
   }
 }
 
@@ -122,6 +121,7 @@ body {
   text-align: justify;
   font-family: "Courier New", Courier, monospace;
   line-height: 30px;
+  /* margin: 20px 10px 0px 0px; */
 }
 
 /*Todo --- This is for light theme button Icon --- */
