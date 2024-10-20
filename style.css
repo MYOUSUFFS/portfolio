@@ -1,17 +1,19 @@
 /* style.css */
 :root {
+  --black: #a0a0a0;
   --background-color: #fff; /* Default light background */
   --text-color: #000; /* Default text color */
-  --background-image: url("assets/image/bg-white.png");
+  /* --background-image: url("assets/image/bg-white.png"); */
   --second-name-bg: url("assets/image/name-bg-black.png");
   --video-bg-glass-color: rgba(255, 255, 255, 0.5);
   --round-align-right: flex-start;
 }
 
 .dark-theme {
+  --black: #585858;
   --background-color: #000; /* Dark background color */
   --text-color: #fff; /* Light text color */
-  --background-image: url("assets/image/bg-black.png");
+  /* --background-image: url("assets/image/bg-black.png"); */
   --second-name-bg: url("assets/image/name-bg-white.png");
   --round-align-right: flex-end;
   --video-bg-glass-color: rgba(0, 0, 0, 0);
@@ -19,43 +21,24 @@
 
 body {
   cursor: url("assets/image/cursor.png"), auto;
-  background-image: var(--background-image);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: radial-gradient(var(--black) 1px, transparent 0);
+  background-size: 40px 40px;
+  /* background-repeat: no-repeat; */
   background-color: var(--background-color);
   color: var(--text-color);
-  background-attachment: fixed;
+}
+
+h2,
+h3 {
+  font-family: "Itim", cursive;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
 }
 
 #myVideo {
   display: none;
-}
-
-/* For bg video running comment */
-.dark-theme #myVideo {
-  display: block;
-  position: fixed; /* Fix the video to the viewport */
-  top: 0;
-  left: 0;
-  width: 100%; /* Cover the entire screen width */
-  height: 100%; /* Cover the entire screen height */
-  object-fit: cover; /* Scale the video to cover the entire screen */
-  z-index: -1; /* Ensure the video is behind other elements */
-}
-
-/* Glassmorphism UI elements */
-.dark-theme .glass-content {
-  display: block;
-  position: fixed;
-  height: 100%;
-  left: 0;
-  width: 100%;
-  object-fit: cover;
-  background-color: var(
-    --video-bg-glass-color
-  ); /* Translucent white background */
-  backdrop-filter: blur(10px);
-  z-index: -1; /* Todo - Layer of the elements */
 }
 
 #hole-content {
@@ -65,27 +48,12 @@ body {
   padding: 10px;
 }
 
-@media (min-width: 768px) {
-  #hole-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 70px 5%;
-  }
-  #content {
-    width: 70%;
-    float: left;
-  }
-
-  #skill-img {
-    width: 30%;
-    float: left;
-  }
-}
-
 #skill-image {
   height: 400px;
   align-items: center;
+}
+#skill-img {
+  align-self: center;
 }
 
 #full-name {
@@ -121,7 +89,6 @@ body {
   text-align: justify;
   font-family: "Courier New", Courier, monospace;
   line-height: 30px;
-  /* margin: 20px 10px 0px 0px; */
 }
 
 /*Todo --- This is for light theme button Icon --- */
@@ -162,4 +129,104 @@ body {
   display: block;
   padding: 12px;
   color: var(--text-color);
+}
+
+#experience {
+  padding: 0 50px;
+}
+
+.space-height {
+  height: 10px;
+}
+
+.space-bottom-height {
+  height: 50px;
+}
+
+/* Todo: Image scroll */
+.scroll-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.scroll-images {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+.scroll-images img {
+  height: 50px; /* Set the height you want */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 50px; /* Space between images */
+  margin-top: 20px;
+}
+
+/* Todo: Button style */
+.button {
+  background-color: white;
+  border: 2px solid #e7e7e7;
+  border-radius: 30px;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e7e7e7;
+}
+
+.center-btn {
+  text-align: center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Adjust based on the number of images */
+  }
+}
+
+/* Todo: Media here. */
+@media (min-width: 768px) {
+  #hole-content {
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    padding: 70px 5%;
+  }
+
+  .space-width {
+    width: 100px;
+  }
+
+  .space-height {
+    height: 20px;
+  }
+
+  .space-bottom-height {
+    height: 100px;
+  }
+
+  #experience {
+    padding: 0 50px;
+    text-align: center;
+  }
+
+  /* Todo: Image scroll */
+  .scroll-images img {
+    height: 80px; /* Set the height you want */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 80px; /* Space between images */
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
 }

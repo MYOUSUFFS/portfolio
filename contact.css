@@ -1,0 +1,113 @@
+.container-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-section {
+  font-size: 24px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.contact-section,
+.form-section {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-buttons,
+.social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-btn,
+.social-btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-media {
+  margin-top: 30px;
+}
+
+.social-media {
+  margin-bottom: 10px;
+}
+
+.form-section {
+  background-color: #666;
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.form-section {
+  color: white;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.phone-input {
+  display: flex;
+}
+
+.phone-input input[type="text"] {
+  width: 50px;
+  text-align: center;
+}
+
+.phone-input input[type="tel"] {
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .container-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-section {
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 55%;
+  }
+}
