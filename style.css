@@ -146,8 +146,14 @@ p {
 /* Todo: Image scroll */
 .scroll-container {
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: scroll; /* Enable horizontal scroll */
   width: 100%;
+  position: relative;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
 }
 
 .scroll-images {
@@ -156,10 +162,19 @@ p {
 }
 
 .scroll-images img {
-  height: 50px; /* Set the height you want */
-  width: auto; /* Maintain aspect ratio */
-  margin-right: 50px; /* Space between images */
+  height: 50px;
+  width: auto;
+  margin-right: 50px;
   margin-top: 20px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* Adjust based on image width */
 }
 
 /* Todo: Button style */
@@ -184,15 +199,6 @@ p {
 
 .center-btn {
   text-align: center;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Adjust based on the number of images */
-  }
 }
 
 /* Todo: Media here. */

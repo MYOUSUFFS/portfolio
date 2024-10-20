@@ -155,58 +155,73 @@
 
       <section id="contact">
         <div class="container-contact">
-            <div class="contact-section">
-              <h2>Contact us</h2>
-              <p>If you have any inquiries get in touch with us. We'll be happy to help.</p>
-              <div class="contact-buttons">
-                <button class="contact-btn"><span>📧</span> E-mail</button>
+          <div class="contact-section">
+            <h2>Contact us</h2>
+            <p>If you have any inquiries get in touch with us. We'll be happy to help.</p>
+            <div class="contact-buttons">
+              <a class="a-btn" href="mailto:mailyousuffsend@gmail.com">
+                <button class="contact-btn"><span>📧</span>
+                  E-mail</button>
+              </a>
+              <a class="a-btn" href="tel:+91 7639376636">
                 <button class="contact-btn"><span>📞</span> Phone</button>
-              </div>
-              <div class="social-media">
-                <h2>Social Media</h2>
-                <div class="social-buttons">
-                  <button class="social-btn">📷 Instagram</button>
+              </a>
+            </div>
+            <div class="social-media">
+              <h2>Social Media</h2>
+              <div class="social-buttons">
+                <a class="a-btn" target="_blank" href="https://www.instagram.com/myselfyousuff/">
+                  <button class="social-btn"> 📷 Instagram</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://www.youtube.com/@myselfyousuff">
                   <button class="social-btn">▶️ YouTube</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://medium.com/@myselfyousuff">
                   <button class="social-btn">✍️ Medium</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://www.linkedin.com/in/myselfyousuff/">
                   <button class="social-btn">💼 LinkedIn</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://github.com/MYOUSUFFS">
                   <button class="social-btn">💻 GitHub</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://www.facebook.com/myselfyousuff/">
                   <button class="social-btn">👤 Facebook</button>
+                </a>
+                <a class="a-btn" target="_blank" href="https://wa.me/+917639376636">
                   <button class="social-btn">💬 Whatsapp</button>
-                  <button class="social-btn">🎮 Discord</button>
-                </div>
+                </a>
+                <a class="a-btn" target="_blank" href="https://www.reddit.com/user/mysoft_in/">
+                  <button class="social-btn">🎮 Reddit</button>
+                </a>
               </div>
             </div>
-            <div class="form-section">
-              <h2 style="color: white; text-align: center;">Get in Touch</h2>
-              <form id="contactForm">
-                <input type="text" id="name" placeholder="Name" required>
-                <input type="email" id="email" placeholder="E-mail" required>
-                <div class="phone-input">
-                  <input type="text" value="+91" readonly>
-                  <div style="width: 15px;"></div>
-                  <input type="tel" id="phone" placeholder="Phone" required>
-                </div>
-                <select id="inquiryType" required>
-                  <option value="" disabled selected>Select</option>
-                  <option value="General">General Inquiry</option>
-                  <option value="Support">Support</option>
-                  <option value="Feedback">Feedback</option>
-                </select>
-                <button type="submit">Submit</button>
-              </form>
-            </div>
+          </div>
+          <div class="form-section">
+            <h2 style="color: white; text-align: center;">Get in Touch</h2>
+            <form id="contactForm">
+              <input type="text" id="name" placeholder="Name" required>
+              <input type="email" id="email" placeholder="E-mail" required>
+              <div class="phone-input">
+                <input type="text" value="+91" readonly>
+                <div style="width: 15px;"></div>
+                <input type="tel" id="phone" placeholder="Phone" required>
+              </div>
+              <select id="inquiryType" required>
+                <option value="" disabled selected>Select</option>
+                <option value="General">General Inquiry</option>
+                <option value="Support">Support</option>
+                <option value="Feedback">Feedback</option>
+              </select>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </section>
     </div>
     <div class="space-bottom-height"></div>
   </div>
 </body>
-<script>
-  document
-    .getElementById("outside-border")
-    .addEventListener("click", function () {
-      document.body.classList.toggle("dark-theme");
-    });
-</script>
+<script src="script.js"></script>
 
 </html>
