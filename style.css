@@ -1,22 +1,24 @@
 /* style.css */
 :root {
-  --black: #a0a0a0;
-  --background-color: #fff; /* Default light background */
-  --text-color: #000; /* Default text color */
-  /* --background-image: url("assets/image/bg-white.png"); */
-  --second-name-bg: url("assets/image/name-bg-black.png");
-  --video-bg-glass-color: rgba(255, 255, 255, 0.5);
-  --round-align-right: flex-start;
-}
-
-.dark-theme {
   --black: #585858;
   --background-color: #000; /* Dark background color */
   --text-color: #fff; /* Light text color */
+  --background-border: rgba(255, 255, 255, 0.2);
   /* --background-image: url("assets/image/bg-black.png"); */
   --second-name-bg: url("assets/image/name-bg-white.png");
   --round-align-right: flex-end;
   --video-bg-glass-color: rgba(0, 0, 0, 0);
+}
+
+.light-theme {
+  --black: #a0a0a0;
+  --background-color: #fff; /* Default light background */
+  --text-color: #000; /* Default text color */
+  --background-border: rgba(0, 0, 0, 0.2);
+  /* --background-image: url("assets/image/bg-white.png"); */
+  --second-name-bg: url("assets/image/name-bg-black.png");
+  --video-bg-glass-color: rgba(255, 255, 255, 0.5);
+  --round-align-right: flex-start;
 }
 
 body {
@@ -28,6 +30,11 @@ body {
   color: var(--text-color);
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+h1,
 h2,
 h3 {
   font-family: "Itim", cursive;
@@ -168,6 +175,91 @@ p {
   margin-top: 20px;
 }
 
+#projects {
+  padding: 20px;
+}
+
+#projects h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--text-dark); /* Text color for header */
+}
+
+#projects .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between projects */
+}
+
+.project {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px var(--background-border);
+  max-width: 300px; /* Limit width for better responsiveness */
+  flex: 1 1 300px; /* Responsive flex-basis */
+  margin: 0 10px; /* Margin for all sides */
+  transition: transform 0.2s; /* Smooth scaling effect */
+}
+
+.project:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.card-img {
+  margin: 10px;
+  padding: 10px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the image */
+}
+
+#projects img {
+  width: 250px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  object-fit: contain; /* Cover to fill the space while preserving aspect ratio */
+}
+
+.card-btn {
+  display: flex;
+  justify-content: space-between; /* Evenly space buttons */
+  margin-top: 10px;
+  width: 100%; /* Ensure the buttons use the full width of the container */
+}
+
+.card-btn .a-btn {
+  flex: 1; /* Allow buttons to take equal space */
+  margin: 0 5px; /* Small margin between buttons */
+}
+
+.card-btn .a-btn button {
+  background-color: var(--text-color); /* Primary color */
+  color: var(--background-color); /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Add padding */
+  font-size: 16px; /* Increase font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  width: 100%; /* Full width */
+}
+
+.card-btn .a-btn button:hover {
+  background-color: gray; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.card-btn .a-btn button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 2px var(--background-border); /* Custom focus outline */
+}
+
+.project-info {
+  padding: 10px;
+  color: var(--text-dark); /* Text color for project info */
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -205,13 +297,16 @@ p {
 @media (min-width: 768px) {
   #hole-content {
     flex-direction: row;
-    /* justify-content: space-between; */
-    align-items: flex-start;
     padding: 70px 5%;
   }
 
+  #content {
+    min-width: 550px;
+    max-width: 1200px;
+  }
+
   .space-width {
-    width: 100px;
+    width: 20px;
   }
 
   .space-height {
@@ -234,5 +329,13 @@ p {
     margin-right: 80px; /* Space between images */
     margin-top: 0px;
     margin-bottom: 20px;
+  }
+  /* Todo: Project screen */
+  #projects .container {
+    flex-direction: row;
+  }
+
+  .project {
+    flex: 1 1 calc(50% - 40px); /* Two projects per row with gap */
   }
 }
