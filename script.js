@@ -14,8 +14,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const phone = document.getElementById("phone").value;
   const inquiryType = document.getElementById("inquiryType").value;
 
-  const url =
-    "https://myportfolioapi-50022963340.development.catalystappsail.in/api/mail";
+  const url = "https://app-jfabyc8k.b4a.run/api/mail";
 
   const formData = {
     name: name,
@@ -26,29 +25,27 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+  // Removed Access-Control-Allow-Origin header
 
-  const postContent = {
+  var raw = JSON.stringify(formData);
+
+  var requestOptions = {
     method: "POST",
     headers: myHeaders,
-    body: JSON.stringify(formData),
+    body: raw,
     redirect: "follow",
+    credentials: "include", // Include credentials if needed (e.g., for sessions)
   };
 
-  console.log("Sending data:", formData); // Log the data being sent
-  fetch(url, postContent)
+  fetch(url, requestOptions)
     .then((response) => {
-      console.log("Response received:", response);
-      if (response.ok) {
-        alert("Your message has been sent successfully");
-      } else {
-        alert("Error sending message");
+      if (!response.ok) {
+        throw new Error("Network response was not ok: " + response.statusText);
       }
+      return response.json(); // Assuming your API returns JSON
     })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-
-  console.log(JSON.stringify(formData, null, 2));
+    .then((result) => console.log(result))
+    .catch((error) => console.log("Error:", error));
 });
 
 //Todo: Project Image Scroll control.
