@@ -14,7 +14,8 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const phone = document.getElementById("phone").value;
   const inquiryType = document.getElementById("inquiryType").value;
 
-  const url = "https://app-jfabyc8k.b4a.run/api/mail";
+  const url =
+    "https://myportfolioapi-50022963340.development.catalystappsail.in/api/mail";
 
   const formData = {
     name: name,
