@@ -14,12 +14,39 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const phone = document.getElementById("phone").value;
   const inquiryType = document.getElementById("inquiryType").value;
 
+  const url =
+    "https://myportfolioapi-50022963340.development.catalystappsail.in/api/mail";
+
   const formData = {
     name: name,
     email: email,
     phone: phone,
     inquiryType: inquiryType,
   };
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const postContent = {
+    method: "POST",
+    headers: myHeaders,
+    body: JSON.stringify(formData),
+    redirect: "follow",
+  };
+
+  console.log("Sending data:", formData); // Log the data being sent
+  fetch(url, postContent)
+    .then((response) => {
+      console.log("Response received:", response);
+      if (response.ok) {
+        alert("Your message has been sent successfully");
+      } else {
+        alert("Error sending message");
+      }
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
 
   console.log(JSON.stringify(formData, null, 2));
 });
