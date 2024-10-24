@@ -28,6 +28,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   myHeaders.append("Content-Type", "application/json");
 
   const postContent = {
+    mode: "no-cors",
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(formData),
