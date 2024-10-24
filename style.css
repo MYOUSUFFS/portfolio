@@ -165,7 +165,7 @@ p {
 
 .scroll-images {
   display: inline-block;
-  animation: scroll 20s linear infinite;
+  /* animation: scroll 1s linear infinite; */
 }
 
 .scroll-images img {
@@ -174,6 +174,18 @@ p {
   margin-right: 50px;
   margin-top: 20px;
 }
+
+/* Keyframes for scrolling */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); 
+  }
+}
+
+/* End */
 
 #projects {
   padding: 20px;
@@ -258,15 +270,6 @@ p {
 .project-info {
   padding: 10px;
   color: var(--text-dark); /* Text color for project info */
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  } /* Adjust based on image width */
 }
 
 /* Todo: Button style */

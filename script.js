@@ -30,59 +30,61 @@ const scrollImages = document.querySelector(".scroll-images");
 let autoScrollTimeout;
 let isUserScrolling = false;
 let scrollEndTimeout;
-const scrollWidth = scrollImages.scrollWidth / 2; // Half of the duplicated image width
+const scrollWidth = scrollImages.scrollWidth / 2; // Total scrollable width
 
 // Stop auto-scroll function
 function stopAutoScroll() {
   scrollImages.style.animationPlayState = "paused";
-  clearTimeout(autoScrollTimeout); // Reset any pending auto-scroll resumes
+  clearTimeout(autoScrollTimeout);
 }
 
 // Resume auto-scroll after 2 seconds
 function resumeAutoScroll() {
-  clearTimeout(autoScrollTimeout); // Clear any existing timeouts
+  clearTimeout(autoScrollTimeout);
   autoScrollTimeout = setTimeout(() => {
     scrollImages.style.animationPlayState = "running";
-  }, 2000); // Resume auto-scroll after 2 seconds
+  }, 2000);
 }
 
 // Handle when the user manually scrolls (both start and stop)
 function handleUserScrollStart() {
-  stopAutoScroll(); // Pause auto-scroll when user starts scrolling manually
-  isUserScrolling = true; // Indicate that the user is scrolling manually
+  stopAutoScroll();
+  isUserScrolling = true;
 }
 
 // Detect when the user stops manual scrolling and restart auto-scroll after 2 seconds
 function handleUserScrollEnd() {
   clearTimeout(scrollEndTimeout);
   scrollEndTimeout = setTimeout(() => {
-    isUserScrolling = false; // User stopped scrolling
-    resumeAutoScroll(); // Resume auto-scroll after 2s
-  }, 2000); // 2 seconds debounce after user stops scrolling
+    isUserScrolling = false;
+    resumeAutoScroll();
+  }, 2000);
 }
 
 // Loop scroll back to the beginning or end if the user scrolls past the duplicated images
 function checkScrollPosition() {
   if (scrollContainer.scrollLeft >= scrollWidth) {
-    // Scroll back to the start seamlessly when scrolling to the right
-    scrollContainer.scrollLeft = 0;
+    // Reset to the start
+    scrollContainer.scrollLeft = scrollWidth / 2; // Jump back to the middle of the first set
   } else if (scrollContainer.scrollLeft <= 0) {
-    // Scroll to the end of the duplicated images when scrolling to the left
-    scrollContainer.scrollLeft = scrollWidth;
+    // Jump to the end of the first set
+    scrollContainer.scrollLeft = scrollWidth / 2; // Jump to the middle of the second set
   }
 }
 
 // Mouse and touch event listeners to stop/restart auto-scroll
 scrollContainer.addEventListener("mousedown", handleUserScrollStart);
 scrollContainer.addEventListener("mouseup", handleUserScrollEnd);
-
 scrollContainer.addEventListener("touchstart", handleUserScrollStart);
 scrollContainer.addEventListener("touchend", handleUserScrollEnd);
 
 // Detect manual scrolling using scroll events
 scrollContainer.addEventListener("scroll", () => {
   clearTimeout(scrollEndTimeout);
-  handleUserScrollStart(); // Pause auto-scroll while user is scrolling
-  checkScrollPosition(); // Check and reset scroll position for infinite scrolling
-  handleUserScrollEnd(); // Detect scroll stop and debounce auto-scroll restart
+  handleUserScrollStart();
+  checkScrollPosition();
+  handleUserScrollEnd();
 });
+
+// Start auto-scrolling
+scrollImages.style.animation = "scroll 20s linear infinite"; // Adjust timing as needed
