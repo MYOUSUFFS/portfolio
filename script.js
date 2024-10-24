@@ -14,7 +14,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const phone = document.getElementById("phone").value;
   const inquiryType = document.getElementById("inquiryType").value;
 
-  const url = "https://app-jfabyc8k.b4a.run/api/mail";
+  const url = "https://app-jfabyc8k.b4a.run/api/mail"; // this is my final api endpoint.
 
   const formData = {
     name: name,
