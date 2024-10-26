@@ -181,7 +181,7 @@ p {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
   }
 }
 
@@ -296,8 +296,59 @@ p {
   text-align: center;
 }
 
-/* Todo: Media here. */
+/* Todo: Media here. 1600px to */
+@media (min-width: 1600px) {
+  body {
+    max-width: 1600px;
+    justify-self: center;
+  }
+  .scroll-container {
+    justify-self: center;
+    width: 1700px;
+  }
+}
+@media (min-width: 1800px) {
+  .scroll-container {
+    justify-self: center;
+    width: 1850px;
+  }
+}
+@media (min-width: 1900px) {
+  .scroll-container {
+    justify-self: center;
+    width: 1900px;
+  }
+}
+@media (min-width: 2000px) {
+  .scroll-container {
+    justify-self: center;
+    width: 2050px;
+  }
+}
+@media (min-width: 2300px) {
+  .scroll-container {
+    justify-self: center;
+    width: 2350px;
+  }
+}
+@media (min-width: 2500px) {
+  .scroll-container {
+    justify-self: center;
+    width: 2500px;
+  }
+}
+@media (min-width: 2800px) {
+  .scroll-container {
+    justify-self: center;
+    width: 2800px;
+  }
+}
+/*! Todo: Media here. *** 2800px End *** */
+/* Todo: Media here. 768px */
 @media (min-width: 768px) {
+  body {
+    justify-content: center;
+  }
   #hole-content {
     flex-direction: row;
     padding: 70px 5%;
@@ -332,6 +383,10 @@ p {
     margin-right: 80px; /* Space between images */
     margin-top: 0px;
     margin-bottom: 20px;
+  }
+  #projects{
+    max-width: 1200px;
+    justify-self: center;
   }
   /* Todo: Project screen */
   #projects .container {
